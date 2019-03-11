@@ -1,0 +1,1 @@
+keyword-> func|see|load|print|Exit|switch|if|else|elseif|ok|on|off|while|for|do|other|but|end|next|in|again|and|or|not|list|get|put|give|case|Bye|to|step|try|catch|New|From|return
