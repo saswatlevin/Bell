@@ -1,0 +1,105 @@
+Program —> {statement}
+
+Statement —> ‘package’ <Identifier> { ‘.’ <Identifier> } [‘{‘ {statement} ‘}’] [‘end’|’endpackage’]
+
+Statement —> ‘class’ <Identifier> [ ‘from’|’:’|’<’ <Identifier> ] [‘{‘ {statement} ‘}’][‘end’|’endclass’]
+
+Statement —> ‘func’|’def’ <Identifier> [ParaList] [‘{‘ {statement} ‘}’][‘end’|’endfunc’]
+
+Statement —> ‘import’ <Identifier> { ‘.’ <Identifier> }
+
+Statement —> ‘private’
+
+Statement —> ‘load’ [‘package’] <Literal>
+
+Statement —> ‘loadsyntax’ <Literal>
+
+Statement —> ‘changeringkeyword’ <OldKeyword> <NewKeyword>
+
+Statement —> ‘changeringoperator’ <OldOperator> <NewOperator>
+
+Statement —> ‘see’|’put’ <Expr>
+
+Statement —> ‘give’|’get’ <Identifier>
+
+Statement —> ‘if’ <Expr> [‘{‘] {statement} [ {‘but’|’elseif’ <Expr> {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’
+
+Statement —> ‘Switch’ <Expr> [‘{‘] { ‘on’|’case’ <Expr> {statement} } [‘other’ {Statement} ] ‘off’|’end’|’}’
+
+Statement —> ‘for’ <Identifier> ‘=’ <Expr> ‘to’ <Expr> [ ‘step’ <Expr> ] [‘{‘] {Statement} ‘next’|’end’|’}’
+
+Statement —> ‘for’ <Identifier> ‘in’ <Expr> [ ‘step’ <Expr> ] [‘{‘] {statement} ‘next’|’end’|’}’
+
+Statement —> ‘while’ <Expr> [‘{‘] {statement} ‘end’|’}’
+
+Statement —> ‘do’ {statement} ‘again’ <Expr>
+
+Statement —> ‘try’ {statement} [‘{‘] ‘catch’ {statement} ‘done’|’end’|’}’
+
+Statement —> ‘return’ <Expr>
+
+Statement —> ‘bye’
+
+Statement —> ‘exit’
+
+Statement —> ‘loop’
+
+Statement —> <Expr>
+
+Statement —> epslion
+
+ParaList —> epslion
+
+ParaList —> [‘(‘] <Identifier> [{ ‘,’ <Identifier> }] [‘)’]
+
+Expr —> <LogicNot> [{ ‘and’|’or’ <LogicNot> }]
+
+LogicNot –> [‘not’] <EqualOrNot>
+
+EqualOrNot –> [ ‘=’|’!=’ ] <Compare>
+
+Compare —> <BitOrXor> [ { ‘<’ | ‘>’ | ‘<=’ | ‘>=’ <BitOrXor> } ]
+
+BitOrXor —> <BitAnd> [ { ‘|’ | ‘^’ <BitAnd> } ]
+
+BitAnd —> <BitShift> [ { ‘&’ <BitShift> } ]
+
+BitShift —> <Arithmetic> [ { ‘<<’ | ‘>>’ <Arithmetic> } ]
+
+Arithmetic —> <Term> [ { ‘+’ | ‘-‘ <Term> } ]
+
+Term —> <Range> [ { ‘*’ | ‘/’ | ‘%’ <Range> } ]
+
+Range —> <Factor> [ ‘:’ <Factor> ]
+
+Factor —> <Identifier> [ {Mixer} ] [ ‘=’ <Expr> ]
+
+Factor —> <Number>
+
+Factor —> <Literal>
+
+Factor —> ‘:’ <Identifier>
+
+Factor —> ‘-‘ <Factor>
+
+Factor —> ‘(‘ <Expr> ‘)’
+
+Factor —> <List>
+
+Factor —> ‘new’ <Identifier>
+
+Factor —> <AnonymousFunction>
+
+Factor —> ‘call’ <identifier> { ‘.’ <Identifier> } ‘(‘ <Parameters> ‘)’
+
+List —> ‘[‘ [ <Expr> { ‘,’ <Expr> } ] ‘]’
+
+Mixer —> { ‘.’ <Identifier> }
+
+Mixer —> ‘[‘ <Expr> ‘]’
+
+Mixer —> ‘(‘ [ <Expr> [ { ‘,’ <Expr> }] ] ‘)’
+
+Mixer —> ‘{‘ {Statement} ‘}’
+
+AnonymousFunction —> ‘func’|’def’| [<ParaList>] ‘{‘ {Statement} ‘}’
