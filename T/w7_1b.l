@@ -2,7 +2,7 @@
   #include<stdio.h>
   #include<stdlib.h>
   #include "w7_1.tab.h"
- 
+
 %}
 
 %%

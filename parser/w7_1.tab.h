@@ -45,6 +45,7 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
+    EOFILE=-1,
     PROGRAM = 258,
     NL = 259,
     COMMA = 260,
