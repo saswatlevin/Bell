@@ -44,7 +44,7 @@ extern int yydebug;
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
-  {
+  { 
     EOFILE=-1,
     PROGRAM = 258,
     NL = 259,
@@ -59,7 +59,24 @@ extern int yydebug;
     PACKAGE = 268,
     PRIVATE = 269,
     ENDPACKAGE = 270,
-    END = 271
+    END = 271,
+    SEE = 272,
+    LOOP = 273,
+    CHANGE_RING_OPERATOR = 274,
+    CHANGE_RING_KEYWORD = 275,
+    IF = 276,
+    GET = 277,
+    GIVE = 278,
+    LOAD = 279,
+    LOADSYNTAX = 280,
+    FOR = 281,
+    WHILE = 282,
+    DO = 283,
+    RETURN = 284,
+    TRY = 285,
+    IMPORT = 286,
+    EXIT = 287,
+    BYE = 288
   };
 #endif
 

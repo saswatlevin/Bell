@@ -26,7 +26,24 @@ extern FILE *yyin;
 %token PRIVATE
 %token ENDPACKAGE
 %token END
-
+%token SEE
+%token LOOP
+%token CHANGE_RING_OPERATOR
+%token CHANGE_RING_KEYWORD
+%token IF
+%token GET
+%token GIVE
+%token LOAD
+%token LOADSYNTAX
+%token FOR
+%token WHILE
+%token DO
+%token RETURN
+%token TRY
+%token IMPORT
+%token EXIT
+%token BYE
+ 
 
 %%
 stmt:STATEMENT NL;

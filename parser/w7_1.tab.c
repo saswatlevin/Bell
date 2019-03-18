@@ -118,7 +118,24 @@ extern int yydebug;
     PACKAGE = 268,
     PRIVATE = 269,
     ENDPACKAGE = 270,
-    END = 271
+    END = 271,
+    SEE = 272,
+    LOOP = 273,
+    CHANGE_RING_OPERATOR = 274,
+    CHANGE_RING_KEYWORD = 275,
+    IF = 276,
+    GET = 277,
+    GIVE = 278,
+    LOAD = 279,
+    LOADSYNTAX = 280,
+    FOR = 281,
+    WHILE = 282,
+    DO = 283,
+    RETURN = 284,
+    TRY = 285,
+    IMPORT = 286,
+    EXIT = 287,
+    BYE = 288
   };
 #endif
 
@@ -138,7 +155,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 142 "w7_1.tab.c" /* yacc.c:358  */
+#line 159 "w7_1.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -383,7 +400,7 @@ union yyalloc
 #define YYLAST   28
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  17
+#define YYNTOKENS  34
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  3
 /* YYNRULES -- Number of rules.  */
@@ -394,7 +411,7 @@ union yyalloc
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   271
+#define YYMAXUTOK   288
 
 #define YYTRANSLATE(YYX)                                                \
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -430,14 +447,15 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27,    28,    29,    30,    31,    32,    33
 };
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    32,    32,    33,    34,    34,    35,    36
+       0,    49,    49,    50,    51,    51,    52,    53
 };
 #endif
 
@@ -448,7 +466,10 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "PROGRAM", "NL", "COMMA", "SEMICOLON",
   "LBR", "RBR", "LSQB", "RSQB", "DOT", "IDENTIFIER", "PACKAGE", "PRIVATE",
-  "ENDPACKAGE", "END", "$accept", "stmt", "STATEMENT", YY_NULLPTR
+  "ENDPACKAGE", "END", "SEE", "LOOP", "CHANGE_RING_OPERATOR",
+  "CHANGE_RING_KEYWORD", "IF", "GET", "GIVE", "LOAD", "LOADSYNTAX", "FOR",
+  "WHILE", "DO", "RETURN", "TRY", "IMPORT", "EXIT", "BYE", "$accept",
+  "stmt", "STATEMENT", YY_NULLPTR
 };
 #endif
 
@@ -458,7 +479,9 @@ static const char *const yytname[] =
 static const yytype_uint16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265,   266,   267,   268,   269,   270,   271
+     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285,   286,   287,   288
 };
 # endif
 
@@ -524,15 +547,15 @@ static const yytype_int8 yycheck[] =
      symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     7,    13,    14,    15,    18,    19,     3,    12,    10,
+       0,     7,    13,    14,    15,    35,    36,     3,    12,    10,
        0,     4,     8,     7,    11,    12,     8,     9,     7,     7,
-      19,     8,     8,    10,     9,    16
+      36,     8,     8,    10,     9,    16
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    17,    18,    19,    19,    19,    19,    19
+       0,    34,    35,    36,    36,    36,    36,    36
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
@@ -1215,7 +1238,7 @@ yyreduce:
   switch (yyn)
     {
       
-#line 1219 "w7_1.tab.c" /* yacc.c:1646  */
+#line 1242 "w7_1.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1443,7 +1466,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 38 "w7_1.y" /* yacc.c:1906  */
+#line 55 "w7_1.y" /* yacc.c:1906  */
 
 
 int yyerror(char *msg)

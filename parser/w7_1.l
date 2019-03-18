@@ -1,4 +1,4 @@
-
+    
 %{
 
 #include <stdio.h>
@@ -19,7 +19,23 @@ enum yytokentype type;
 char* Type(struct token* tk)
 {
 switch(tk->type)
-{
+{                                                                             /*SEE = 272,
+    LOOP = 273,
+    CHANGE_RING_OPERATOR = 274,
+    CHANGE_RING_KEYWORD = 275,
+    IF = 276,
+    GET = 277,
+    GIVE = 278,
+    LOAD = 279,
+    LOADSYNTAX = 280,
+    FOR = 281,
+    WHILE = 282,
+    DO = 283,
+    RETURN = 284,
+    TRY = 285,
+    IMPORT = 286,
+    EXIT = 287,
+    BYE = 288*/
 case 258:
 return "PROGRAM";
 
@@ -38,7 +54,7 @@ return "LBR";
 case 263:
 return "RBR";
 
-case 264:
+case 264:                                            
 return "LSQB";
 
 case 265:
@@ -61,6 +77,57 @@ return "ENDPACKAGE";
 
 case 271:
 return "END";
+
+case 272:
+return "LOOP";
+
+case 273:
+return "LOOP";
+
+case 274:
+return "CHANGE_RING_OPERATOR";
+
+case 275:
+return "CHANGE_RING_KEYWORD";
+
+case 276:
+return "IF";
+
+case 277:
+return "GET";
+
+case 278:
+return "GIVE";
+
+case 279:
+return "LOAD";
+
+case 280:
+return "LOADSYNTAX";
+
+case 281:
+return "FOR";
+
+case 282:
+return "WHILE";
+
+case 283:
+return "DO";
+
+case 284:
+return "RETURN";
+
+case 285:
+return "TRY";
+
+case 286:
+return "IMPORT";
+
+case 287:
+return "EXIT";
+
+case 288:
+return "BYE";
 
 default:
 return "UNIDENTIFIED";
@@ -153,7 +220,91 @@ tk->type=type;
                    setTokenArgs(tk,yytext,-1,lineno,colno,END);
                    colno+=strlen(yytext);
                    return END;}
+
+"load"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,LOAD);
+                   colno+=strlen(yytext);
+                   return LOAD;}
+                
+"loadsyntax"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,LOADSYNTAX);
+                   colno+=strlen(yytext);
+                   return LOADSYNTAX;}
         
+"see"             {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,SEE);
+                   colno+=strlen(yytext);
+                   return SEE;}
+
+"import"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,IMPORT);
+                   colno+=strlen(yytext);
+                   return IMPORT;}
+
+
+"changeringoperator"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,CHANGE_RING_OPERATOR);
+                   colno+=strlen(yytext);                                                         
+                   return CHANGE_RING_OPERATOR ;}
+
+"changeringkeyword"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,CHANGE_RING_KEYWORD);
+                   colno+=strlen(yytext);
+                   return CHANGE_RING_KEYWORD ;}
+
+"give"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,GIVE);
+                   colno+=strlen(yytext);
+                   return GIVE ;}
+
+"get"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,GIVE);
+                   colno+=strlen(yytext);
+                   return GET;}
+
+"if"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,IF);
+                   colno+=strlen(yytext);
+                   return IF;}
+
+"for"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,FOR);
+                   colno+=strlen(yytext);
+                   return FOR;}
+
+"Switch"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,SWITCH);
+                   colno+=strlen(yytext);
+                   return SWITCH;}
+
+"do"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,DO);
+                   colno+=strlen(yytext);
+                   return DO;}
+
+"try"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,TRY);
+                   colno+=strlen(yytext);
+                   return TRY;}
+
+"return"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,RETURN);
+                   colno+=strlen(yytext);
+                   return RETURN;}
+
+"loop"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,LOOP);
+                   colno+=strlen(yytext);
+                   return LOOP;}
+"exit"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,EXIT);
+                   colno+=strlen(yytext);
+                   return EXIT;}
+
+"bye"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,BYE);
+                   colno+=strlen(yytext);
+                   return BYE;}
 
 
 "\n"     {tk=allocToken();
