@@ -44,7 +44,7 @@ extern int yydebug;
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
-  { 
+  {
     EOFILE=-1,
     PROGRAM = 258,
     NL = 259,
@@ -76,7 +76,12 @@ extern int yydebug;
     TRY = 285,
     IMPORT = 286,
     EXIT = 287,
-    BYE = 288
+    BYE = 288,
+    DEF = 289,
+    ENDFUNC = 290,
+    FUNC = 291,
+    SWITCH = 292,
+    LITERAL = 293
   };
 #endif
 

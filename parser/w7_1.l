@@ -19,7 +19,7 @@ enum yytokentype type;
 char* Type(struct token* tk)
 {
 switch(tk->type)
-{                                                                             /*SEE = 272,
+{   /*SEE = 272,
     LOOP = 273,
     CHANGE_RING_OPERATOR = 274,
     CHANGE_RING_KEYWORD = 275,
@@ -128,6 +128,18 @@ return "EXIT";
 
 case 288:
 return "BYE";
+
+case 289:
+return "DEF";
+
+case 290:
+return "ENDFUNC";
+
+case 291:
+return "SWITCH";
+
+case 292:
+return "LITERAL";
 
 default:
 return "UNIDENTIFIED";
@@ -306,11 +318,27 @@ tk->type=type;
                    colno+=strlen(yytext);
                    return BYE;}
 
+"def"      {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,DEF);
+                   colno+=strlen(yytext);
+                   return DEF;}
+
+"endfunc"  {tk=allocToken();
+                   setTokenArgs(tk,yytext,-1,lineno,colno,ENDFUNC);
+                   colno+=strlen(yytext);
+                   return ENDFUNC;}
+
 
 "\n"     {tk=allocToken();
                  setTokenArgs(tk,yytext,-1,lineno,colno,NL);
                  colno+=strlen(yytext);
                  return NL;}
+
+
+"\""([^\n\"\\]*(\\[.\n])*)*"\""   {tk=allocToken();
+                 setTokenArgs(tk,yytext,-1,lineno,colno,LITERAL);
+                 colno+=strlen(yytext);
+                 return LITERAL;} 
 
 
 .       {tk=allocToken();
