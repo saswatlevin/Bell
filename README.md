@@ -1,2 +1,2 @@
 # Bell
-A compiler designed for the rIng language
+A parser designed for the rIng language
