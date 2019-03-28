@@ -87,14 +87,23 @@ extern int yydebug;
     FROM = 297,
     SEE = 298,
     PUT = 299,
-    LITERAL = 300,
-    LT = 301,
-    GT = 302,
-    LE = 303,
-    GE = 304,
-    AND = 305,
-    OR = 306,
-    LOGICNOT = 307
+    BUT = 300,
+    ELSE = 301,
+    ELSEIF = 302,
+    OK = 303,
+    LITERAL = 304,
+    EQUAL = 305,
+    NE = 306,
+    LE = 307,
+    GE = 308,
+    LT = 309,
+    GT = 310,
+    AND = 311,
+    BXOR = 312,
+    OR = 313,
+    NOT = 314,
+    XAND = 315,
+    EXP = 316
   };
 #endif
 

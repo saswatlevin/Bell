@@ -64,30 +64,38 @@ extern FILE *yyin;
 %token ENDCLASS
 %token FROM
 
-
 %token SEE
 %token PUT
 
+%token BUT
+%token ELSE
+%token ELSEIF
+%token OK
 
 %token LITERAL
 
-%token LT
-%token GT
+%token EQUAL
+%token NE
 %token LE
 %token GE
-
+%token LT
+%token GT
 
 %token AND
+%token BXOR
 %token OR
-%token LOGICNOT
+%token NOT
+
+%token XAND 
+
+%token EXP
 
 %define parse.error verbose                                                                   
 %%
 stmt:STATEMENT DOLLAR
     ;
 
-STATEMENT:PACK|CLAS
-         |FNC|IMPOR|PRIVAT|LOD|LODSYN|SEE_PUT_EXPR|GIVE_GET_IDENTIFIER
+STATEMENT:PACK|CLAS|FNC|IMPOR|PRIVAT|LOD|LODSYN|SEE_PUT_EXPR|GIVE_GET_IDENTIFIER
          |
          ;
 
@@ -147,21 +155,58 @@ LODSYN:LOADSYNTAX LITERAL STATEMENT
 
 
   
-SEE_PUT_EXPR: SEE_PUT EXPR
+SEE_PUT_EXPR:SEE_PUT EXPR
             ;
 SEE_PUT:SEE|PUT
        ;
 
 
-EXPR:LOGICNOT AND_OR LOGICNOT 
+EXPR:LOGIC_NOT AND_OR EQUAL_OR_NOT 
     ;
 AND_OR:AND|OR
       ;
+
+LOGIC_NOT:NOT EQUAL_OR_NOT
+        ;
+
+EQUAL_OR_NOT:NOT|NE COMPARE
+            ;
+
+COMPARE:BIT_OR_XOR LT_GT_LE_GE BIT_OR_XOR 
+       ;
+
+LT_GT_LE_GE:LT|GT|LE|GE
+           ;
+
+BIT_OR_XOR:BIT_AND BXOR_EXP BIT_AND
+          ;   
+
+BXOR_EXP:BXOR|EXP
+        ;
+
+BIT_AND:XAND 
+       ;
+
 
 GIVE_GET_IDENTIFIER:GIVE_GET IDENTIFIER
                    ;
 GIVE_GET:GIVE|GET
         ;
+
+
+
+
+
+     /*BUT_ELSEIF:BUT|ELSEIF
+          ;
+
+     IF_MIDLE:BUT_ELSEIF EXPR STATEMENT
+        ;
+   
+    IF_ELS:ELSE STATEMENT IF_EN
+      ;
+    IF_EN:OK|END|RBR
+     ;*/
 
 
 %%
@@ -187,8 +232,3 @@ void main()
         printf("\nSuccess\n");
 }
 
-/*
-PACKAGE IDENTIFIER DOT IDENTIFIER LBR STATEMENT RBR END|ENDPACKAGE
-         |CLASS IDENTIFIER FROM|COLON|LE IDENTIFIER LBR STATEMENT RBR END|ENDCLASS
-         |
-*/

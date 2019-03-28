@@ -5,13 +5,17 @@
 
 %%
 
-"<"      {return LT;}
-
-">"       {return GT;}
+"="       {return EQUAL;}
+"!="      {return NE;}
 
 "<="      {return LE;}
 
 ">="      {return GE;}
+
+"<"      {return LT;}
+
+">"       {return GT;}
+
 
 "("      {return LR;}
 
@@ -87,13 +91,28 @@
 
 "put"      {return PUT;}
 
+"but"      {return BUT;}
+
+"else"     {return ELSE;}
+
+"elseif"   {return ELSEIF;}
+
+"ok"       {return OK;}
+
 "nl"       {return NL;}
 
 
 "and"      {return AND;}
+
+"|"        {return BXOR;}
+
+"&"        {return XAND;}
+
+"^"        {return EXP;}
+
 "or"       {return OR;}
 
-"not"      {return LOGICNOT;}
+"not"      {return NOT;}
 
 ","      {return COMMA;}
 ":"      {return COLON;}
