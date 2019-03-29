@@ -1,5 +1,5 @@
-load package "abc"
 
+see "ANC"
 
 class Point from xyz{
 func a(b,c)
@@ -9,4 +9,6 @@ func a(b,c)
 endfunc
 }
 end$
+
+
 
