@@ -97,6 +97,10 @@
 
 "elseif"   {return ELSEIF;}
 
+"new"      {return NEW;}
+
+"call"     {return CALL;}
+
 "ok"       {return OK;}
 
 "nl"       {return NL;}
@@ -107,6 +111,20 @@
 "|"        {return BXOR;}
 
 "&"        {return XAND;}
+
+"<<"       {return SHIFT_LEFT;}
+
+">>"       {return SHIFT_RIGHT;}
+
+"+"        {return PLUS;}
+
+"-"        {return MINUS;}
+
+"*"        {return INTO;}
+
+"/"        {return BY;}
+
+"%"        {return MODULUS;}
 
 "^"        {return EXP;}
 
@@ -124,10 +142,10 @@
 
 ^\.$    {return DOT;}
 
-[0-9]  {return IDENTIFIER;}    
+[0-9]  {return NUMBER;}    
 
 
-[aA-zZ]+  {return IDENTIFIER;}    
+[aA-zZ]+  {return LETTER;}    
 
 %%
 

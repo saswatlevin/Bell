@@ -27,7 +27,8 @@ extern FILE *yyin;
 %token DOT 
 
 
-%token IDENTIFIER
+%token LETTER
+%token NUMBER                  //%token IDENTFIER
 
 
 %token PACKAGE
@@ -70,6 +71,8 @@ extern FILE *yyin;
 %token BUT
 %token ELSE
 %token ELSEIF
+%token NEW
+%token CALL
 %token OK
 
 %token LITERAL
@@ -86,14 +89,29 @@ extern FILE *yyin;
 %token OR
 %token NOT
 
-%token XAND 
+%token SHIFT_LEFT
+%token SHIFT_RIGHT
+
+%token PLUS
+%token MINUS
+
+%token INTO
+%token BY
+%token MODULUS
 
 %token EXP
+
+%token XAND 
+
+
 
 %define parse.error verbose                                                                   
 %%
 stmt:STATEMENT DOLLAR
     ;
+
+IDENTIFIER:LETTER|NUMBER
+          ;
 
 STATEMENT:PACK|CLAS|FNC|IMPOR|PRIVAT|LOD|LODSYN|SEE_PUT_EXPR|GIVE_GET_IDENTIFIER
          |
@@ -160,6 +178,10 @@ SEE_PUT_EXPR:SEE_PUT EXPR
 SEE_PUT:SEE|PUT
        ;
 
+GIVE_GET_IDENTIFIER:GIVE_GET IDENTIFIER
+                   ;
+GIVE_GET:GIVE|GET
+        ;
 
 EXPR:LOGIC_NOT AND_OR EQUAL_OR_NOT 
     ;
@@ -184,31 +206,55 @@ BIT_OR_XOR:BIT_AND BXOR_EXP BIT_AND
 BXOR_EXP:BXOR|EXP
         ;
 
-BIT_AND:XAND 
+BIT_AND:BIT_SHIFT XAND BIT_SHIFT 
        ;
 
+BIT_SHIFT:ARITHMETIC SHIFT_LEFT_RIGHT ARITHMETIC
+         ;
 
-GIVE_GET_IDENTIFIER:GIVE_GET IDENTIFIER
-                   ;
-GIVE_GET:GIVE|GET
-        ;
-
-
-
-
-
-     /*BUT_ELSEIF:BUT|ELSEIF
+SHIFT_LEFT_RIGHT:SHIFT_LEFT|SHIFT_RIGHT
+                ;
+ARITHMETIC:TERM ADDOP TERM
           ;
 
-     IF_MIDLE:BUT_ELSEIF EXPR STATEMENT
-        ;
-   
-    IF_ELS:ELSE STATEMENT IF_EN
+ADDOP:PLUS|MINUS
+    ;
+
+TERM:RANGE MULOP RANGE 
+    ;
+
+MULOP:BY|INTO|MODULUS  
+     ;
+
+RANGE:FACTOR COLON FACTOR              
+     ;
+
+FACTOR:IDENTIFIER MIXER EQUAL EXPR
+      |NUMBER
+      |LITERAL
+      |COLON IDENTIFIER
+      |MINUS FACTOR
+      |LR EXPR RR
+      |LIST
+      |NEW IDENTIFIER
+      |CALL IDENTIFIER DOT IDENTIFIER LR PARALIST RR
+      |ANONYMOUS_FUNCTION
       ;
-    IF_EN:OK|END|RBR
-     ;*/
 
 
+LIST:LSQB EXPR COMMA EXPR RSQB
+    ;
+
+MIXER:DOT IDENTIFIER
+     |LSQB EXPR RSQB
+     |LR EXPR COMMA EXPR RR
+     |LBR STATEMENT RBR
+     ;                               
+
+ANONYMOUS_FUNCTION:FNCSTA_PARALIST LBR STATEMENT RBR //NOMINAL
+                  ;
+FNCSTA_PARALIST:FNCSTA|PARALIST
+               ;
 %%
 
 int yyerror(char *msg)
