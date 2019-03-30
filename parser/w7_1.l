@@ -99,9 +99,15 @@
 
 "new"      {return NEW;}
 
+"other"    {return OTHER;}
+
 "call"     {return CALL;}
 
+"case"     {return CASE;} 
+
 "ok"       {return OK;}
+
+"on"       {return ON;}
 
 "nl"       {return NL;}
 
@@ -138,9 +144,11 @@
 "$"     {return DOLLAR;}
     
 
-"\""([^\n\"\\]*(\\[.\n])*)*"\""   {return LITERAL;}
+["][^"]*["] {return LITERAL;} //For multi-line strings
 
-^\.$    {return DOT;}
+[ \t\n]+                                                                          
+
+^\.$    {return DOT;} //For a single dot
 
 [0-9]  {return NUMBER;}    
 
@@ -152,4 +160,4 @@
 int yywrap(){
      return 1;
 }
-  
+  /*"\""([^\n\"\\]*(\\[.\n])*)*"\""   {return LITERAL;}*/

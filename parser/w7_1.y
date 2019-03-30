@@ -72,7 +72,11 @@ extern FILE *yyin;
 %token ELSE
 %token ELSEIF
 %token NEW
+%token OTHER
 %token CALL
+%token CASE
+%token ON
+%token OFF
 %token OK
 
 %token LITERAL
@@ -107,157 +111,173 @@ extern FILE *yyin;
 
 %define parse.error verbose                                                                   
 %%
-stmt:STATEMENT DOLLAR
+stmt:statement DOLLAR
     ;
 
-IDENTIFIER:LETTER|NUMBER
+identifier:LETTER|NUMBER
           ;
 
-STATEMENT:PACK|CLAS|FNC|IMPOR|PRIVAT|LOD|LODSYN|SEE_PUT_EXPR|GIVE_GET_IDENTIFIER|EXPR
+statement:pack|clas|fnc|impor|privat|lod|lodsyn|give_get_identifier|expr|see_put_expr|switch_stat|identifier
          |
          ;
 
-PACK:PACKAGE IDENTIFIER DOT IDENTIFIER PACKSELF PACKEN
+pack:PACKAGE identifier DOT identifier packself packen
        ; 
-PACKSELF:LBR STATEMENT RBR
+packself:LBR statement RBR
         |
         ;
 
-PACKEN:END|ENDPACKAGE
+packen:END|ENDPACKAGE
       ;
 
-CLAS:CLASS IDENTIFIER CLASMIDLE IDENTIFIER CLASSELF CLASEN STATEMENT
+clas:CLASS identifier clasmidle identifier clasself clasen statement
     ;
 
-CLASMIDLE:FROM|COLON|LT
+clasmidle:FROM|COLON|LT
          |
          ;
 
-CLASEN:END|ENDCLASS
+clasen:END|ENDCLASS
       |
       ;
 
-CLASSELF:LBR STATEMENT RBR
+clasself:LBR statement RBR
         |
         ;
 
-FNC:FNCSTA IDENTIFIER PARALIST FNCSELF FNCEN
-        ;
+fnc:fncsta identifier paralist fncself fncen statement
+   ;
 
-FNCSTA:FUNC|DEF
+fncsta:FUNC|DEF
       ;
 
-PARALIST:LR IDENTIFIER COMMA IDENTIFIER RR
+paralist:LR identifier COMMA identifier RR
         |
         ;
 
-FNCSELF:LBR STATEMENT RBR
+fncself:LBR statement RBR
        |
        ;
 
-FNCEN:END|ENDFUNC
+fncen:END|ENDFUNC
      |
      ;
 
 
-IMPOR:IMPORT IDENTIFIER DOT IDENTIFIER
+impor:IMPORT identifier DOT identifier
      ; 
-PRIVAT:PRIVATE
+privat:PRIVATE
       ;
 
-LOD:LOAD PACKAGE LITERAL STATEMENT
+lod:LOAD PACKAGE LITERAL statement
+   |LOAD LITERAL statement
    ;
-LODSYN:LOADSYNTAX LITERAL STATEMENT
+lodsyn:LOADSYNTAX LITERAL statement
       ;
 
 
 
   
-SEE_PUT_EXPR:SEE_PUT EXPR STATEMENT
-            |SEE_PUT LITERAL STATEMENT
-            |SEE_PUT LITERAL PLUS NL STATEMENT
+see_put_expr:see_put expr statement
+            |see_put LITERAL statement
+            |see_put LITERAL plus_nl
+            |see_put LITERAL plus_literal plus_nl statement
             ;
-SEE_PUT:SEE|PUT
+
+plus_literal:PLUS identifier
+            ;
+
+plus_nl:PLUS NL
        ;
 
-GIVE_GET_IDENTIFIER:GIVE_GET IDENTIFIER STATEMENT
+see_put:SEE|PUT
+       ;
+
+give_get_identifier:give_get identifier statement
                    ;
-GIVE_GET:GIVE|GET
+give_get:GIVE|GET
         ;
 
-EXPR:LOGIC_NOT AND_OR EQUAL_OR_NOT 
-    ;
 
-AND_OR:AND|OR
-      |
-      ;
-
-LOGIC_NOT:NOT EQUAL_OR_NOT
-         ;
-
-EQUAL_OR_NOT:NOT|NE COMPARE
-            ;
-
-COMPARE:BIT_OR_XOR LT_GT_LE_GE BIT_OR_XOR 
-       ;
-
-LT_GT_LE_GE:LT|GT|LE|GE
+switch_stat:SWITCH expr CASE expr statement OTHER statement OFF statement
            ;
 
-BIT_OR_XOR:BIT_AND BXOR_EXP BIT_AND
-          ;   
 
-BXOR_EXP:BXOR|EXP
-        ;
+expr:logic_not and_or equal_or_not 
+    ;
 
-BIT_AND:BIT_SHIFT XAND BIT_SHIFT 
-       ;
+and_or:AND|OR
+      ;
 
-BIT_SHIFT:ARITHMETIC SHIFT_LEFT_RIGHT ARITHMETIC
+logic_not:NOT equal_or_not
          ;
 
-SHIFT_LEFT_RIGHT:SHIFT_LEFT|SHIFT_RIGHT
+equal_or_not:not_ne compare
+            ;
+
+not_ne:NOT|NE
+      ;
+
+compare:bit_or_xor lt_gt_le_ge bit_or_xor 
+       ;
+
+lt_gt_le_ge:LT|GT|LE|GE
+           ;
+
+bit_or_xor:bit_and bxor_exp bit_and
+          ;   
+
+bxor_exp:BXOR|EXP
+        ;
+
+bit_and:bit_shift XAND bit_shift 
+       ;
+
+bit_shift:arithmetic shift_left_right arithmetic
+         ;
+
+shift_left_right:SHIFT_LEFT|SHIFT_RIGHT
                 ;
-ARITHMETIC:TERM ADDOP TERM
+arithmetic:term addop term
           ;
 
-ADDOP:PLUS|MINUS
+addop:PLUS|MINUS
     ;
 
-TERM:RANGE MULOP RANGE 
+term:range mulop range 
     ;
 
-MULOP:BY|INTO|MODULUS  
+mulop:BY|INTO|MODULUS  
      ;
 
-RANGE:FACTOR COLON FACTOR              
+range:factor COLON factor              
      ;
 
-FACTOR:IDENTIFIER MIXER EQUAL EXPR
+factor:identifier mixer EQUAL expr
       |NUMBER
       |LITERAL
-      |COLON IDENTIFIER
-      |MINUS FACTOR
-      |LR EXPR RR
-      |LIST
-      |NEW IDENTIFIER
-      |CALL IDENTIFIER DOT IDENTIFIER LR PARALIST RR
-      |ANONYMOUS_FUNCTION
+      |COLON identifier
+      |MINUS factor
+      |LR expr RR
+      |list
+      |NEW identifier
+      |CALL identifier DOT identifier LR paralist RR
+      |anonymous_function
       ;
 
 
-LIST:LSQB EXPR COMMA EXPR RSQB
+list:LSQB expr COMMA expr RSQB
     ;
 
-MIXER:DOT IDENTIFIER
-     |LSQB EXPR RSQB
-     |LR EXPR COMMA EXPR RR
-     |LBR STATEMENT RBR
+mixer:DOT identifier
+     |LSQB expr RSQB
+     |LR expr COMMA expr RR
+     |LBR statement RBR
      ;                               
 
-ANONYMOUS_FUNCTION:FNCSTA_PARALIST LBR STATEMENT RBR //NOMINAL
+anonymous_function:fncsta_paralist LBR statement RBR //nominal performance
                   ;
-FNCSTA_PARALIST:FNCSTA|PARALIST
+fncsta_paralist:fncsta|paralist
                ;
 %%
 
@@ -266,6 +286,10 @@ int yyerror(char *msg)
 	printf("%s\n",msg);
 	exit(0);
 }
+
+#ifdef YYDEBUG
+  yydebug = 1;
+#endif
 
 void main()
 {
@@ -281,4 +305,13 @@ void main()
          
         printf("\nSuccess\n");
 }
+/*EXPR_IDENTIFIER:EXPR|IDENTIFIER
+               ;
 
+EQUAL_NE_LE_GE_LT_GT:EQUAL|NE|LE|GE|LT|GT
+                    ;
+
+EXPR_ALL:EQUAL_NE_LE_GE_LT_GT EXPR_IDENTIFIER
+        ;
+        
+*/ 

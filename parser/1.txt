@@ -1,4 +1,3 @@
-
 see "ANC"
 
 class Point from xyz{
@@ -9,6 +8,4 @@ func a(b,c)
 endfunc
 }
 end$
-
-
 
