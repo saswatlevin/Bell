@@ -5,16 +5,6 @@
 
 %%
 
-"="       {return EQUAL;}
-"!="      {return NE;}
-
-"<="      {return LE;}
-
-">="      {return GE;}
-
-"<"      {return LT;}
-
-">"       {return GT;}
 
 
 "("      {return LR;}
@@ -85,6 +75,8 @@
 
 "endclass" {return ENDCLASS;}
 
+"endwhile" {return ENDWHILE;}
+
 "from"     {return FROM;}
 
 "see"      {return SEE;}
@@ -112,36 +104,41 @@
 "nl"       {return NL;}
 
 
-"and"      {return AND;}
-
-"|"        {return BXOR;}
-
-"&"        {return XAND;}
 
 "<<"       {return SHIFT_LEFT;}
 
 ">>"       {return SHIFT_RIGHT;}
 
-"+"        {return PLUS;}
 
-"-"        {return MINUS;}
 
-"*"        {return INTO;}
 
-"/"        {return BY;}
+"+"        {return ADDOP;}
+"-"        {return ADDOP;}
 
-"%"        {return MODULUS;}
+"*"        {return MULOP;}
+"/"        {return MULOP;}
+"%"        {return MULOP;}
 
-"^"        {return EXP;}
 
-"or"       {return OR;}
 
-"not"      {return NOT;}
+"and"      {return LOGOP;}
+"|"        {return LOGOP;}
+"&"        {return LOGOP;}
+"or"       {return LOGOP;}
+"not"      {return LOGOP;}
+
+"="       {return RELOP;}
+"!="      {return RELOP;}
+"<="      {return RELOP;}
+">="      {return RELOP;}
+"<"       {return RELOP;}
+">"       {return RELOP;}
+
 
 ","      {return COMMA;}
 ":"      {return COLON;}
 ";"      {return SS;}
-"$"     {return DOLLAR;}
+"$"      {return DOLLAR;}
     
 
 ["][^"]*["] {return LITERAL;} //For multi-line strings
@@ -153,7 +150,7 @@
 [0-9]  {return NUMBER;}    
 
 
-[aA-zZ]+  {return LETTER;}    
+[aA-zZ]+  {return IDENTIFIER;}    
 
 %%
 
