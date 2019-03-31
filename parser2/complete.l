@@ -99,7 +99,13 @@
 
 "ok"       {return OK;}
 
+"to"       {return TO;}
+
+"step"     {return STEP;}
+
 "on"       {return ON;}
+
+"start"    {return START;}
 
 "nl"       {return NL;}
 
@@ -112,27 +118,29 @@
 
 
 
-"+"        {return ADDOP;}
-"-"        {return ADDOP;}
+"+"        {return PLUS;}
+"-"        {return MINUS;}
 
-"*"        {return MULOP;}
-"/"        {return MULOP;}
-"%"        {return MULOP;}
+"*"        {return INTO;}
+"/"        {return BY;}
+"%"        {return MODULUS;}
 
 
 
-"and"      {return LOGOP;}
-"|"        {return LOGOP;}
-"&"        {return LOGOP;}
-"or"       {return LOGOP;}
-"not"      {return LOGOP;}
+"and"      {return AND;}
+"|"        {return XOR;}
+"&"        {return AND;}
+"or"       {return OR;}
+"not"      {return NOT;}
 
-"="       {return RELOP;}
-"!="      {return RELOP;}
-"<="      {return RELOP;}
-">="      {return RELOP;}
-"<"       {return RELOP;}
-">"       {return RELOP;}
+"="       {return EQUAL;}
+
+
+"!="      {return NE;}
+"<="      {return LE;}
+">="      {return GE;}
+"<"       {return LT;}
+">"       {return GT;}
 
 
 ","      {return COMMA;}
@@ -147,14 +155,14 @@
 
 ^\.$    {return DOT;} //For a single dot
 
-[0-9]  {return NUMBER;}    
+[aA-zZ]+  {return IDENTIFIER;}             
+[0-9]+   {return NUMBER;}              
 
-
-[aA-zZ]+  {return IDENTIFIER;}    
+/*"\""([^\n\"\\]*(\\[.\n])*)*"\""   {return LITERAL;}
 
 %%
 
 int yywrap(){
      return 1;
 }
-  /*"\""([^\n\"\\]*(\\[.\n])*)*"\""   {return LITERAL;}*/
+ 

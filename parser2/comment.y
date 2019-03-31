@@ -1,47 +1,29 @@
-/*BUT_ELSEIF:BUT|ELSEIF
-          ;
-
-     IF_MIDLE:BUT_ELSEIF EXPR STATEMENT
-        ;
-   
-    IF_ELS:ELSE STATEMENT IF_EN
-      ;
-    IF_EN:OK|END|RBR
-     ;
-*/
-
-/*EXPR_ALL:EXPR_IDENTIFIER
-        |EQUAL_EXPR_IDENTIFIER
-        |NE_EXPR_IDENTIFIER
-        |LE_EXPR_IDENTIFIER
-        |GE_EXPR_IDENTIFIER
-        |GT_EXPR_IDENTIFIER
-        |LT_EXPR_IDENTIFIER
-        ;*/ 
-
-/*EXPR_IDENTIFIER:EXPR|IDENTIFIER
-               ;*/
 
 
 
-/*EQUAL_EXPR_IDENTIFIER:EQUAL EXPR_IDENTIFIER
-                     ;    
 
-NE_EXPR_IDENTIFIER:NE EXPR_IDENTIFIER
-                  ;
-
-LE_EXPR_IDENTIFIER:LE EXPR_IDENTIFIER
-                  ;
-
-LT_EXPR_IDENTIFIER:LT EXPR_IDENTIFIER
-                  ;
-
-GT_EXPR_IDENTIFIER:GT EXPR_IDENTIFIER
-                  ;
-
-GE_EXPR_IDENTIFIER:GE EXPR_IDENTIFIER*/
-                  ;
-       
-
-/*if_stat:IF identifier EQUAL statement SEE LITERAL PLUS LITERAL PLUS NL ELSEIF statement ELSE statement OK statement
-       ;*/
+/*PACKAGE IDENTIFIER DOT IDENTIFIER LBR statement RBR END|ENDPACKAGE
+         |CLASS IDENTIFIER FROM|COLON|LE IDENTIFIER LBR statement RBR END|ENDCLASS         
+         |FUNC|DEF IDENTIFIER paralist LBR statement RBR END|ENDFUNC
+         |IMPORT IDENTIFIER DOT IDENTIFIER 
+         |PRIVATE
+         |LOAD PACKAGE LITERAL
+         |LOADSYNTAX LITERAL
+         |CHANGE_RING_KEYWORD OLD_KEYWORD NEW_KEYWORD
+         |CHANGE_RING_OPERATOR OLD_OPERATOR NEW_OPERATOR
+         |SEE|PUT expression
+         |GIVE|GET IDENTIFIER
+         |IF expression LBR statement BUT|ELSEIF expression statement ELSE statement RBR|OK 
+         |SWITCH expression LBR ON|CASE expression statement OTHER statement RBR|OFF
+         |FOR IDENTIFIER EQUAL expression TO expression STEP expression LBR statement RBR
+         |FOR IDENTIFIER IN expression STEP expression LBR statement RBR     
+         |WHILE expression LBR statement RBR    
+         |DO statement AGAIN expression
+         |TRY statement LBR CATCH statement RBR|END|DONE
+         |RETURN expression
+         |BYE
+         |EXIT
+         |LOOP
+         |expression
+         |
+         ;*/
