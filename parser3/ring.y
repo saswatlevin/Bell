@@ -10,7 +10,7 @@ extern FILE *yyin;
 %token ELSE
 %token ELSEIF
 
-
+%token WHILE
 
 %token IDENTIFIER
 %token OPERATOR
@@ -28,15 +28,21 @@ stmt:program EOP
 program:Statement
        ;
 
-Statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR
+Statement:if_statement
 	|expr
 	;
+
+if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR
+	;
+
+
 
 lbr_d:LBR
 	|
 	;
 
 stmt_prime_4:stmt_prime_4 IDENTIFIER
+        |stmt_prime_4 expr
 	|
 	;
 

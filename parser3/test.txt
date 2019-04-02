@@ -1,6 +1,6 @@
 if a|b
 {
-a
+a=b
 
 elseif b|c
 b=c

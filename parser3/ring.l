@@ -23,6 +23,7 @@
 "or"      {return OPERATOR;} 
 "not"     {return OPERATOR;} 
 
+"while"   {return WHILE;}
 
 "{"      {return LBR;}
 "}"      {return RBR;}
