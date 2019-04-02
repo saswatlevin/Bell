@@ -23,4 +23,14 @@ while i>=0
 j=i
 }
 
-do i-1 again i>0@
+do i-1 again i>0
+
+try 
+i=10
+{
+
+catch
+
+i<10
+}@
+

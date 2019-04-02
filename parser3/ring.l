@@ -41,6 +41,9 @@
 "do"     {return DO;}
 "again"  {return AGAIN;}
 
+"try"    {return TRY;}
+"catch"  {return CATCH;}
+
 "{"      {return LBR;}
 "}"      {return RBR;}
 
