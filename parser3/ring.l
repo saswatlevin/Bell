@@ -44,6 +44,10 @@
 "try"    {return TRY;}
 "catch"  {return CATCH;}
 
+"switch" {return SWITCH;}
+"case"   {return CASE;}
+"other"  {return OTHER;}
+
 "{"      {return LBR;}
 "}"      {return RBR;}
 

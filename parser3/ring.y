@@ -26,6 +26,10 @@ extern FILE *yyin;
 %token TRY
 %token CATCH
 
+%token SWITCH
+%token CASE
+%token OTHER
+
 %token IDENTIFIER
 %token OPERATOR
 
@@ -52,6 +56,7 @@ Statement:if_statement
         |while_loop
         |do_again_loop
         |try_catch_statement
+        |switch_statement
         |expr
         ;
 
@@ -68,9 +73,32 @@ do_again_loop:DO stmt_prime_8 AGAIN expr Statement
 	;
 
 
-try_catch_statement:TRY stmt_prime_9 lbr_d5 CATCH stmt_prime_10 RBR
+try_catch_statement:TRY stmt_prime_9 lbr_d5 CATCH stmt_prime_10 RBR Statement
 	;
 
+switch_statement:SWITCH expr lbr_d1 case_expr_statement_p other_STMT_d RBR
+	;
+
+lbr_d1:LBR
+      |
+      ;
+
+case_expr_statement_p:case_expr_statement_p CASE expr stmt_prime_5	
+	|	
+	;
+
+other_STMT_d:OTHER STMT_prime_2
+	|
+	;
+
+STMT_prime_2:STMT_prime_2 Statement
+	|
+	;
+
+stmt_prime_5:stmt_prime_5 IDENTIFIER
+	|stmt_prime_5 expr
+	|	
+	;
 
 stmt_prime_9:stmt_prime_9 IDENTIFIER
 	|stmt_prime_9 expr

@@ -23,4 +23,23 @@ comma_id_p:comma_id_p COMMA IDENTIFIER
 	;
 
 
+
+
+lbr_d1:LBR
+      |
+      ;
+
+case_expr_statement_p:case_expr_statement_p CASE expr stmt_prime_5	
+	|	
+	;
+
+stmt_prime_5:stmt_prime_5 IDENTIFIER
+	|stmt_prime_5 expr
+	|	
+	;	
+
+other_STMT_d:stmt_prime_5 Statement
+	|
+	;
+
 %%
