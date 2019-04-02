@@ -21,5 +21,6 @@ a=b
 while i>=0
 {
 j=i
-}@
+}
 
+do i-1 again i>0@

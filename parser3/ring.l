@@ -38,6 +38,9 @@
 "while"  {return WHILE;}
 "end"    {return END;}
 
+"do"     {return DO;}
+"again"  {return AGAIN;}
+
 "{"      {return LBR;}
 "}"      {return RBR;}
 

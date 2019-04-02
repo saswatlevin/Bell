@@ -55,14 +55,16 @@ extern int yydebug;
     ENDFUNC = 265,
     WHILE = 266,
     END = 267,
-    IDENTIFIER = 268,
-    OPERATOR = 269,
-    LBR = 270,
-    RBR = 271,
-    COMMA = 272,
-    LR = 273,
-    RR = 274,
-    EOP = 275
+    DO = 268,
+    AGAIN = 269,
+    IDENTIFIER = 270,
+    OPERATOR = 271,
+    LBR = 272,
+    RBR = 273,
+    COMMA = 274,
+    LR = 275,
+    RR = 276,
+    EOP = 277
   };
 #endif
 

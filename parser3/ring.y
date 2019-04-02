@@ -20,6 +20,9 @@ extern FILE *yyin;
 %token WHILE
 %token END
 
+%token DO
+%token AGAIN
+
 %token IDENTIFIER
 %token OPERATOR
 
@@ -44,6 +47,7 @@ Statement:if_statement
 	|for_loop
         |function_statement
         |while_loop
+        |do_again_loop
         |expr
         ;
 
@@ -53,7 +57,15 @@ if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR State
 for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement
 	;
 
-while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR 
+while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR Statement
+	;
+
+do_again_loop:DO stmt_prime_8 AGAIN expr	
+	;
+
+stmt_prime_8:stmt_prime_8 IDENTIFIER
+	|stmt_prime_8 expr 
+	|	
 	;
 
 lbr_d4:LBR
