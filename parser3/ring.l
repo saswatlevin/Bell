@@ -48,6 +48,10 @@
 "case"   {return CASE;}
 "other"  {return OTHER;}
 
+"package" {return PACKAGE;}
+"."       {return DOT;}
+"endpackage" {return ENDPACKAGE;}
+
 "{"      {return LBR;}
 "}"      {return RBR;}
 

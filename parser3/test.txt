@@ -42,5 +42,7 @@ i+1
 
 other
 i+2
-}@
+}
+
+package a.ring {abc} endpackage@
 

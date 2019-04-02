@@ -62,14 +62,17 @@ extern int yydebug;
     SWITCH = 272,
     CASE = 273,
     OTHER = 274,
-    IDENTIFIER = 275,
-    OPERATOR = 276,
-    LBR = 277,
-    RBR = 278,
-    COMMA = 279,
-    LR = 280,
-    RR = 281,
-    EOP = 282
+    PACKAGE = 275,
+    DOT = 276,
+    ENDPACKAGE = 277,
+    IDENTIFIER = 278,
+    OPERATOR = 279,
+    LBR = 280,
+    RBR = 281,
+    COMMA = 282,
+    LR = 283,
+    RR = 284,
+    EOP = 285
   };
 #endif
 
