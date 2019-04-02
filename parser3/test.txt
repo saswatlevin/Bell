@@ -7,5 +7,10 @@ b=c
 
 else 
 c<d
+}
+
+for i=0 to i=5 step i+1
+{
+j=i
 }@
 

@@ -48,12 +48,14 @@ extern int yydebug;
     IF = 258,
     ELSE = 259,
     ELSEIF = 260,
-    WHILE = 261,
-    IDENTIFIER = 262,
-    OPERATOR = 263,
-    LBR = 264,
-    RBR = 265,
-    EOP = 266
+    FOR = 261,
+    TO = 262,
+    STEP = 263,
+    IDENTIFIER = 264,
+    OPERATOR = 265,
+    LBR = 266,
+    RBR = 267,
+    EOP = 268
   };
 #endif
 

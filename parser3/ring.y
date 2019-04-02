@@ -10,13 +10,14 @@ extern FILE *yyin;
 %token ELSE
 %token ELSEIF
 
-%token WHILE
+%token FOR
+%token TO
+%token STEP
 
 %token IDENTIFIER
 %token OPERATOR
 
 %token LBR 
-
 %token RBR
 
 %token EOP
@@ -29,14 +30,28 @@ program:Statement
        ;
 
 Statement:if_statement
-	|expr
+	|for_loop
+        |expr
 	;
 
-if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR
+if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement
+	;
+
+for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR
+	;
+
+step_expr_d:STEP expr
+	|
+	;
+
+lbr_d2:LBR
+	|
 	;
 
 
-
+STMT_prime_3:STMT_prime_3 Statement
+	|
+	;
 lbr_d:LBR
 	|
 	;

@@ -10,7 +10,11 @@
 "else"    {return ELSE;}
 "elseif"  {return ELSEIF;}
 
-
+"+"       {return OPERATOR;}
+"-"       {return OPERATOR;}
+"*"       {return OPERATOR;}
+"/"       {return OPERATOR;}
+"%"       {return OPERATOR;}
 "<"       {return OPERATOR;}       
 "<="      {return OPERATOR;} 
 ">"       {return OPERATOR;} 
@@ -23,7 +27,12 @@
 "or"      {return OPERATOR;} 
 "not"     {return OPERATOR;} 
 
-"while"   {return WHILE;}
+
+"for"   {return FOR;}
+"to"    {return TO;}
+"step"  {return STEP;}
+
+
 
 "{"      {return LBR;}
 "}"      {return RBR;}
@@ -31,7 +40,7 @@
 "@"    {return EOP;}
 
 
-[aA-zZ]+  {return IDENTIFIER;}
+[aA-zZ_0-9]+  {return IDENTIFIER;}
 
 %%
 int yywrap()
