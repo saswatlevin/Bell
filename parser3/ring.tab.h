@@ -51,11 +51,16 @@ extern int yydebug;
     FOR = 261,
     TO = 262,
     STEP = 263,
-    IDENTIFIER = 264,
-    OPERATOR = 265,
-    LBR = 266,
-    RBR = 267,
-    EOP = 268
+    FUNC = 264,
+    ENDFUNC = 265,
+    IDENTIFIER = 266,
+    OPERATOR = 267,
+    LBR = 268,
+    RBR = 269,
+    COMMA = 270,
+    LR = 271,
+    RR = 272,
+    EOP = 273
   };
 #endif
 

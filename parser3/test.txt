@@ -12,5 +12,9 @@ c<d
 for i=0 to i=5 step i+1
 {
 j=i
-}@
+}
+
+func power(a,b){
+a=b
+}endfunc@
 

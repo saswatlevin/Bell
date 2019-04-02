@@ -14,11 +14,19 @@ extern FILE *yyin;
 %token TO
 %token STEP
 
+%token FUNC
+%token ENDFUNC
+
 %token IDENTIFIER
 %token OPERATOR
 
 %token LBR 
 %token RBR
+
+%token COMMA
+
+%token LR
+%token RR
 
 %token EOP
 %define parse.error verbose 
@@ -31,14 +39,39 @@ program:Statement
 
 Statement:if_statement
 	|for_loop
+        |function_statement
         |expr
-	;
+        ;
 
 if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement
 	;
 
-for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR
+for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement
 	;
+
+function_statement:FUNC IDENTIFIER paralist_d lbr_stmt_rbr_d2 ENDFUNC
+	;
+
+paralist_d:lr_d IDENTIFIER COMMA IDENTIFIER rr_d
+	|
+        ;
+
+lr_d:LR
+    |
+    ;
+
+rr_d:RR
+    |	
+    ;
+
+lbr_stmt_rbr_d2:LBR stmt_prime_3 RBR
+        |
+	;
+stmt_prime_3:stmt_prime_3 IDENTIFIER
+	|stmt_prime_3 expr
+        |	
+	;
+
 
 step_expr_d:STEP expr
 	|

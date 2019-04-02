@@ -32,10 +32,17 @@
 "to"    {return TO;}
 "step"  {return STEP;}
 
+"func"  {return FUNC;}
+"endfunc" {return ENDFUNC;}
 
 
 "{"      {return LBR;}
 "}"      {return RBR;}
+
+"("      {return LR;}
+")"      {return RR;}
+
+","      {return COMMA;}
 
 "@"    {return EOP;}
 
