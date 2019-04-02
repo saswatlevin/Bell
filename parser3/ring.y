@@ -17,6 +17,9 @@ extern FILE *yyin;
 %token FUNC
 %token ENDFUNC
 
+%token WHILE
+%token END
+
 %token IDENTIFIER
 %token OPERATOR
 
@@ -40,6 +43,7 @@ program:Statement
 Statement:if_statement
 	|for_loop
         |function_statement
+        |while_loop
         |expr
         ;
 
@@ -49,7 +53,19 @@ if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR State
 for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement
 	;
 
-function_statement:FUNC IDENTIFIER paralist_d lbr_stmt_rbr_d2 ENDFUNC
+while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR 
+	;
+
+lbr_d4:LBR
+	|
+        ;
+
+stmt_prime_7:stmt_prime_7 IDENTIFIER
+        |stmt_prime_7 expr
+	|	
+	;
+
+function_statement:FUNC IDENTIFIER paralist_d lbr_stmt_rbr_d2 ENDFUNC Statement
 	;
 
 paralist_d:lr_d IDENTIFIER COMMA IDENTIFIER rr_d

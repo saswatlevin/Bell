@@ -16,5 +16,10 @@ j=i
 
 func power(a,b){
 a=b
-}endfunc@
+}endfunc
+
+while i>=0
+{
+j=i
+}@
 

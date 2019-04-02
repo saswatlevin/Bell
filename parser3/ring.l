@@ -35,6 +35,8 @@
 "func"  {return FUNC;}
 "endfunc" {return ENDFUNC;}
 
+"while"  {return WHILE;}
+"end"    {return END;}
 
 "{"      {return LBR;}
 "}"      {return RBR;}
