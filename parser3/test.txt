@@ -1,0 +1,11 @@
+if a|b
+{
+a
+
+elseif b|c
+b=c
+
+else 
+c<d
+}@
+
