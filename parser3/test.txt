@@ -47,5 +47,11 @@ i+2
 package a.ring {abc} endpackage
 
 see "name"
-give "help"@
+give "help"
+
+class ABC from DEF
+{
+i=0
+j=1
+}endclass@
 

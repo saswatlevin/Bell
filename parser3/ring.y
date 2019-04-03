@@ -39,6 +39,10 @@ extern FILE *yyin;
 
 %token GIVE
 
+%token CLASS
+%token FROM
+%token ENDCLASS
+
 %token IDENTIFIER
 %token OPERATOR
 
@@ -69,6 +73,7 @@ Statement:if_statement
         |package_statement
         |see_statement
         |give_statement
+        |class_statement
         |expr
         ;
 
@@ -98,9 +103,25 @@ see_statement:SEE expr Statement
 	|SEE LITERAL Statement
 	;
 
-give_statement:GIVE expr
-	|GIVE LITERAL
+give_statement:GIVE expr Statement
+	|GIVE LITERAL Statement
         ;
+
+class_statement:CLASS IDENTIFIER from_colon_lt_id_prime lbr_stmt_rbr_d1 ENDCLASS 
+	;
+
+from_colon_lt_id_prime:FROM IDENTIFIER
+        |	
+	;
+
+lbr_stmt_rbr_d1: LBR stmt_prime_2 RBR
+	|
+	;
+
+stmt_prime_2:stmt_prime_2 IDENTIFIER
+	|stmt_prime_2 expr
+	|
+	;
 
 dot_id_p:DOT IDENTIFIER dot_id_p 
 	|	

@@ -56,6 +56,10 @@
 
 "give"   {return GIVE;}
 
+"class"  {return CLASS;}
+"from"   {return FROM;}
+"endclass" {return ENDCLASS;}
+
 "\""([^\n\"\\]*(\\[.\n])*)*"\""  {return LITERAL;}
 
 "{"      {return LBR;}

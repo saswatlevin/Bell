@@ -68,14 +68,17 @@ extern int yydebug;
     SEE = 278,
     LITERAL = 279,
     GIVE = 280,
-    IDENTIFIER = 281,
-    OPERATOR = 282,
-    LBR = 283,
-    RBR = 284,
-    COMMA = 285,
-    LR = 286,
-    RR = 287,
-    EOP = 288
+    CLASS = 281,
+    FROM = 282,
+    ENDCLASS = 283,
+    IDENTIFIER = 284,
+    OPERATOR = 285,
+    LBR = 286,
+    RBR = 287,
+    COMMA = 288,
+    LR = 289,
+    RR = 290,
+    EOP = 291
   };
 #endif
 
