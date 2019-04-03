@@ -46,5 +46,6 @@ i+2
 
 package a.ring {abc} endpackage
 
-see "name"@
+see "name"
+give "help"@
 

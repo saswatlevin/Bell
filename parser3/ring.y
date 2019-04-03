@@ -37,6 +37,8 @@ extern FILE *yyin;
 %token SEE
 %token LITERAL 
 
+%token GIVE
+
 %token IDENTIFIER
 %token OPERATOR
 
@@ -66,6 +68,7 @@ Statement:if_statement
         |switch_statement
         |package_statement
         |see_statement
+        |give_statement
         |expr
         ;
 
@@ -91,9 +94,13 @@ switch_statement:SWITCH expr lbr_d1 case_expr_statement_p other_STMT_d RBR State
 package_statement:PACKAGE IDENTIFIER dot_id_p lbr_stmt_rbr_d ENDPACKAGE Statement
 	;
 
-see_statement:SEE expr
-	|SEE LITERAL 
+see_statement:SEE expr Statement
+	|SEE LITERAL Statement
 	;
+
+give_statement:GIVE expr
+	|GIVE LITERAL
+        ;
 
 dot_id_p:DOT IDENTIFIER dot_id_p 
 	|	

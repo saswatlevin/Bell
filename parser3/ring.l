@@ -53,6 +53,9 @@
 "endpackage" {return ENDPACKAGE;}
 
 "see"    {return SEE;}
+
+"give"   {return GIVE;}
+
 "\""([^\n\"\\]*(\\[.\n])*)*"\""  {return LITERAL;}
 
 "{"      {return LBR;}

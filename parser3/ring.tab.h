@@ -67,14 +67,15 @@ extern int yydebug;
     ENDPACKAGE = 277,
     SEE = 278,
     LITERAL = 279,
-    IDENTIFIER = 280,
-    OPERATOR = 281,
-    LBR = 282,
-    RBR = 283,
-    COMMA = 284,
-    LR = 285,
-    RR = 286,
-    EOP = 287
+    GIVE = 280,
+    IDENTIFIER = 281,
+    OPERATOR = 282,
+    LBR = 283,
+    RBR = 284,
+    COMMA = 285,
+    LR = 286,
+    RR = 287,
+    EOP = 288
   };
 #endif
 
