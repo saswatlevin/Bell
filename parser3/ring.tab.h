@@ -71,14 +71,15 @@ extern int yydebug;
     CLASS = 281,
     FROM = 282,
     ENDCLASS = 283,
-    IDENTIFIER = 284,
-    OPERATOR = 285,
-    LBR = 286,
-    RBR = 287,
-    COMMA = 288,
-    LR = 289,
-    RR = 290,
-    EOP = 291
+    LOAD = 284,
+    IDENTIFIER = 285,
+    OPERATOR = 286,
+    LBR = 287,
+    RBR = 288,
+    COMMA = 289,
+    LR = 290,
+    RR = 291,
+    EOP = 292
   };
 #endif
 
