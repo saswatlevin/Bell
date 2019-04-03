@@ -52,6 +52,9 @@
 "."       {return DOT;}
 "endpackage" {return ENDPACKAGE;}
 
+"see"    {return SEE;}
+"\""([^\n\"\\]*(\\[.\n])*)*"\""  {return LITERAL;}
+
 "{"      {return LBR;}
 "}"      {return RBR;}
 
@@ -64,6 +67,8 @@
 
 
 [aA-zZ_0-9]+  {return IDENTIFIER;}
+
+
 
 %%
 int yywrap()
