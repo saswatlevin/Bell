@@ -86,13 +86,16 @@ Statement:if_statement
         |expr
         ;
 
-if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement { }
+if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement {printf("%s", $1);}
 	;
 
-for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement { }
+for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement {printf("%s", $1);
+                                                                          printf("%s",$3);
+                                                                          printf("%s",$8);}
 	;
 
-while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR Statement 
+while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR Statement {printf("%s", $1);
+                                                         printf("%s",$5);}
 	;
 
 do_again_loop:DO stmt_prime_8 AGAIN expr Statement 	
@@ -242,7 +245,7 @@ stmt_prime_4:stmt_prime_4 IDENTIFIER
 	|
 	;
 
-elseif_expr_stmt_p:elseif_expr_stmt_p ELSEIF expr STMT_p     { }
+elseif_expr_stmt_p:elseif_expr_stmt_p ELSEIF expr STMT_p     
 	|	
 	;
 
@@ -250,7 +253,7 @@ STMT_p:STMT_p Statement
 	|	
 	;
 
-else_STMT_d:ELSE STMT_prime_1                                { }
+else_STMT_d:ELSE STMT_prime_1                                
 	|
 	;
 
@@ -274,7 +277,7 @@ void main()
 	yyin=fopen("test.txt","r");
         int a = yyparse();
     fclose(yyin);
-    if(a == 0) {
+    /*if(a == 0) {
         printf("-------------------------------\n");
         printf("Variable\tType\n");
         printf("-------------------------------\n");
@@ -282,8 +285,8 @@ void main()
         printf("Parsed successfuly!\n");
     } else {
         
-        /* yyerror() */
-    }
+        /* yyerror() 
+    }*/
   
     return 0;
 }

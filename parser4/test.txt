@@ -52,7 +52,7 @@ i=0
 j=1
 }endclass
 
-load package
+load package "abc"@
 
 
 

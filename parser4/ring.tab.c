@@ -473,16 +473,16 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint16 yyrline[] =
 {
        0,    68,    68,    71,    74,    75,    76,    77,    78,    79,
-      80,    81,    82,    83,    84,    85,    86,    89,    92,    95,
-      98,   102,   105,   108,   111,   112,   115,   116,   119,   122,
-     125,   126,   129,   130,   133,   134,   135,   138,   139,   142,
-     143,   146,   147,   148,   151,   152,   155,   156,   159,   160,
-     163,   164,   167,   168,   169,   172,   173,   174,   177,   178,
-     181,   182,   183,   186,   187,   188,   191,   192,   195,   196,
-     197,   200,   203,   204,   207,   208,   211,   212,   215,   216,
-     218,   219,   220,   224,   225,   228,   229,   233,   234,   236,
-     237,   240,   241,   242,   245,   246,   249,   250,   253,   254,
-     257,   258,   261
+      80,    81,    82,    83,    84,    85,    86,    89,    92,    97,
+     101,   105,   108,   111,   114,   115,   118,   119,   122,   125,
+     128,   129,   132,   133,   136,   137,   138,   141,   142,   145,
+     146,   149,   150,   151,   154,   155,   158,   159,   162,   163,
+     166,   167,   170,   171,   172,   175,   176,   177,   180,   181,
+     184,   185,   186,   189,   190,   191,   194,   195,   198,   199,
+     200,   203,   206,   207,   210,   211,   214,   215,   218,   219,
+     221,   222,   223,   227,   228,   231,   232,   236,   237,   239,
+     240,   243,   244,   245,   248,   249,   252,   253,   256,   257,
+     260,   261,   264
 };
 #endif
 
@@ -1368,30 +1368,27 @@ yyreduce:
     {
         case 17:
 #line 89 "ring.y" /* yacc.c:1646  */
-    { }
+    {printf("%s", (yyvsp[-7].str));}
 #line 1373 "ring.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
 #line 92 "ring.y" /* yacc.c:1646  */
-    { }
-#line 1379 "ring.tab.c" /* yacc.c:1646  */
+    {printf("%s", (yyvsp[-8].str));
+                                                                          printf("%s",(yyvsp[-6].str));
+                                                                          printf("%s",(yyvsp[-1].str));}
+#line 1381 "ring.tab.c" /* yacc.c:1646  */
     break;
 
-  case 94:
-#line 245 "ring.y" /* yacc.c:1646  */
-    { }
-#line 1385 "ring.tab.c" /* yacc.c:1646  */
-    break;
-
-  case 98:
-#line 253 "ring.y" /* yacc.c:1646  */
-    { }
-#line 1391 "ring.tab.c" /* yacc.c:1646  */
+  case 19:
+#line 97 "ring.y" /* yacc.c:1646  */
+    {printf("%s", (yyvsp[-5].str));
+                                                         printf("%s",(yyvsp[-1].str));}
+#line 1388 "ring.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1395 "ring.tab.c" /* yacc.c:1646  */
+#line 1392 "ring.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1619,7 +1616,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 263 "ring.y" /* yacc.c:1906  */
+#line 266 "ring.y" /* yacc.c:1906  */
 
 
 
@@ -1634,7 +1631,7 @@ void main()
 	yyin=fopen("test.txt","r");
         int a = yyparse();
     fclose(yyin);
-    if(a == 0) {
+    /*if(a == 0) {
         printf("-------------------------------\n");
         printf("Variable\tType\n");
         printf("-------------------------------\n");
@@ -1642,8 +1639,8 @@ void main()
         printf("Parsed successfuly!\n");
     } else {
         
-        /* yyerror() */
-    }
+        /* yyerror() 
+    }*/
   
     return 0;
 }
