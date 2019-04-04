@@ -523,8 +523,11 @@ char *yytext;
 #line 1 "ring.l"
 #line 2 "ring.l"
 #include "ring.tab.h"
-#line 527 "lex.yy.c"
-#line 528 "lex.yy.c"
+char arr[100];
+int i = 0;
+int flag = 0;
+#line 530 "lex.yy.c"
+#line 531 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -741,11 +744,11 @@ YY_DECL
 		}
 
 	{
-#line 6 "ring.l"
+#line 9 "ring.l"
 
 
 
-#line 749 "lex.yy.c"
+#line 752 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -804,261 +807,261 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "ring.l"
-{return IF;}
+#line 12 "ring.l"
+{yylval.str = strdup(yytext);return IF;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "ring.l"
-{return ELSE;}
+#line 13 "ring.l"
+{yylval.str = strdup(yytext);return ELSE;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "ring.l"
-{return ELSEIF;}
+#line 14 "ring.l"
+{yylval.str = strdup(yytext);return ELSEIF;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "ring.l"
-{return OPERATOR;}
+#line 16 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 14 "ring.l"
-{return OPERATOR;}
+#line 17 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 15 "ring.l"
-{return OPERATOR;}
+#line 18 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 "ring.l"
-{return OPERATOR;}
+#line 19 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 17 "ring.l"
-{return OPERATOR;}
+#line 20 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 18 "ring.l"
-{return OPERATOR;}       
+#line 21 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;}       
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 19 "ring.l"
-{return OPERATOR;} 
+#line 22 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 20 "ring.l"
-{return OPERATOR;} 
+#line 23 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 21 "ring.l"
-{return OPERATOR;} 
+#line 24 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 22 "ring.l"
-{return OPERATOR;} 
+#line 25 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 23 "ring.l"
-{return OPERATOR;} 
+#line 26 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 24 "ring.l"
-{return OPERATOR;} 
+#line 27 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 25 "ring.l"
-{return OPERATOR;} 
+#line 28 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 26 "ring.l"
-{return OPERATOR;} 
+#line 29 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 27 "ring.l"
-{return OPERATOR;} 
+#line 30 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 28 "ring.l"
-{return OPERATOR;} 
+#line 31 "ring.l"
+{yylval.str = strdup(yytext);return OPERATOR;} 
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 31 "ring.l"
-{return FOR;}
+#line 34 "ring.l"
+{yylval.str = strdup(yytext);return FOR;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 32 "ring.l"
-{return TO;}
+#line 35 "ring.l"
+{yylval.str = strdup(yytext);return TO;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 33 "ring.l"
-{return STEP;}
+#line 36 "ring.l"
+{yylval.str = strdup(yytext);return STEP;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 35 "ring.l"
-{return FUNC;}
+#line 38 "ring.l"
+{yylval.str = strdup(yytext);return FUNC;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 36 "ring.l"
-{return ENDFUNC;}
+#line 39 "ring.l"
+{yylval.str = strdup(yytext);return ENDFUNC;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 38 "ring.l"
-{return WHILE;}
+#line 41 "ring.l"
+{yylval.str = strdup(yytext);return WHILE;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 39 "ring.l"
-{return END;}
+#line 42 "ring.l"
+{yylval.str = strdup(yytext);return END;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 41 "ring.l"
-{return DO;}
+#line 44 "ring.l"
+{yylval.str = strdup(yytext);return DO;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 42 "ring.l"
-{return AGAIN;}
+#line 45 "ring.l"
+{yylval.str = strdup(yytext);return AGAIN;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 44 "ring.l"
-{return TRY;}
+#line 47 "ring.l"
+{yylval.str = strdup(yytext);return TRY;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 45 "ring.l"
-{return CATCH;}
+#line 48 "ring.l"
+{yylval.str = strdup(yytext);return CATCH;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 47 "ring.l"
-{return SWITCH;}
+#line 50 "ring.l"
+{yylval.str = strdup(yytext);return SWITCH;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 48 "ring.l"
-{return CASE;}
+#line 51 "ring.l"
+{yylval.str = strdup(yytext);return CASE;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 49 "ring.l"
-{return OTHER;}
+#line 52 "ring.l"
+{yylval.str = strdup(yytext);return OTHER;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 51 "ring.l"
-{return PACKAGE;}
+#line 54 "ring.l"
+{yylval.str = strdup(yytext);return PACKAGE;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 52 "ring.l"
-{return DOT;}
+#line 55 "ring.l"
+{yylval.str = strdup(yytext);return DOT;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 53 "ring.l"
-{return ENDPACKAGE;}
+#line 56 "ring.l"
+{yylval.str = strdup(yytext);return ENDPACKAGE;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 55 "ring.l"
-{return SEE;}
+#line 58 "ring.l"
+{yylval.str = strdup(yytext);return SEE;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 57 "ring.l"
-{return GIVE;}
+#line 60 "ring.l"
+{yylval.str = strdup(yytext);return GIVE;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 59 "ring.l"
-{return CLASS;}
+#line 62 "ring.l"
+{yylval.str = strdup(yytext);return CLASS;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 60 "ring.l"
-{return FROM;}
+#line 63 "ring.l"
+{yylval.str = strdup(yytext);return FROM;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 61 "ring.l"
-{return ENDCLASS;}
+#line 64 "ring.l"
+{yylval.str = strdup(yytext);return ENDCLASS;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 63 "ring.l"
-{return LOAD;}
+#line 66 "ring.l"
+{yylval.str = strdup(yytext);return LOAD;}
 	YY_BREAK
 case 43:
 /* rule 43 can match eol */
 YY_RULE_SETUP
-#line 65 "ring.l"
-{return LITERAL;}
+#line 68 "ring.l"
+{yylval.str = strdup(yytext);return LITERAL;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 67 "ring.l"
-{return LBR;}
+#line 70 "ring.l"
+{yylval.str = strdup(yytext);return LBR;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 68 "ring.l"
-{return RBR;}
+#line 71 "ring.l"
+{yylval.str = strdup(yytext);return RBR;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 70 "ring.l"
-{return LR;}
+#line 73 "ring.l"
+{yylval.str = strdup(yytext);return LR;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 71 "ring.l"
-{return RR;}
+#line 74 "ring.l"
+{yylval.str = strdup(yytext);return RR;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 73 "ring.l"
-{return COMMA;}
+#line 76 "ring.l"
+{yylval.str = strdup(yytext);return COMMA;}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 75 "ring.l"
-{return EOP;}
+#line 78 "ring.l"
+{yylval.str = strdup(yytext);return EOP;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 78 "ring.l"
-{return IDENTIFIER;}
+#line 81 "ring.l"
+{yylval.str = strdup(yytext);return IDENTIFIER;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 82 "ring.l"
+#line 85 "ring.l"
 ECHO;
 	YY_BREAK
-#line 1062 "lex.yy.c"
+#line 1065 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2063,7 +2066,16 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 82 "ring.l"
+#line 85 "ring.l"
+
+void yyerror(char *msg) {
+    printf("error\n");
+    // printf("%s\n", msg);
+    
+    printf("line number: %d, msg: %s, char: %s\n", yylineno, msg, yytext );
+}
+
+
 
 int yywrap()
 {
