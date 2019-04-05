@@ -82,13 +82,12 @@ Statement:if_statement
         |see_statement
         |give_statement
         |class_statement
-        |load_statement
-        |EOP
         |expr
         ;
 
-if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement { printf("\nType   Token"); 
-                                                                                       printf("\nIf statement %s", $1);}
+if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement { printf("\nType\t\tToken"); 
+                                                                                       printf("\nKeyword\t\t%s", $1);
+											printf("\nSS\t\t%s",$7);}
 	;
 
 for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement { printf("\nType   Token");
@@ -147,22 +146,27 @@ give_statement:GIVE expr Statement{ printf("\nType   Token");
                                 }
         ;
 
-class_statement:CLASS IDENTIFIER from_colon_lt_id_prime lbr_stmt_rbr_d1 ENDCLASS Statement{ 
+class_statement:CLASS IDENTIFIER from_colon_lt_id_prime lbr_stmt_rbr_d1 ENDCLASS { 
                                 printf("\nType   Token");
                                 printf("\nsee_stat %s",$1);
                                 printf("\nsee_stat %s",$2);                     
                                 }
 	;
 
-load_statement:LOAD PACKAGE LITERAL{}
-                                       
-	;
 
-from_colon_lt_id_prime:FROM IDENTIFIER
+from_colon_lt_id_prime:FROM IDENTIFIER{ 
+                                printf("\nType   Token");
+                                printf("\nclass %s",$1);
+                                printf("\nclass %s",$2);                     
+                                }
         |	
 	;
 
-lbr_stmt_rbr_d1: LBR stmt_prime_2 RBR
+lbr_stmt_rbr_d1: LBR stmt_prime_2 RBR{ 
+                                printf("\nType   Token");
+                                printf("\nspe %s",$1);
+                                printf("\nclass %s",$2);                     
+                                }
 	|
 	;
 

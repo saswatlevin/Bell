@@ -14,33 +14,16 @@ c<d
 
 do i-1 again i>0
 
-for i=0 to i=5 step i+1
-{
-j=i
-}
+
 
 
 func power(a,b){
 a=b
 }endfunc
 
-try 
-i=10
-{
 
-catch
 
-i<10
-}
 
-switch i>0
-{
-case i=1
-i+1
-
-other
-i+2
-}
 
 
 see "name"
@@ -50,9 +33,9 @@ class ABC from DEF
 {
 i=0
 j=1
-}endclass
+}endclass@
 
-load package "bring"@
+
 
 
 

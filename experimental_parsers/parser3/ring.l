@@ -72,7 +72,7 @@
 
 ","      {return COMMA;}
 
-"@"    {return EOP;}
+<<EOF>>    {return EOP;}
 
 
 [aA-zZ_0-9]+  {return IDENTIFIER;}

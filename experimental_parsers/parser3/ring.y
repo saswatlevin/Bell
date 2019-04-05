@@ -59,11 +59,11 @@ extern FILE *yyin;
 %token EOP
 %define parse.error verbose 
 %%
-stmt:program EOP
+stmt:Statement EOP
     ;
 
-program:Statement
-       ;
+
+
 
 Statement:if_statement
 	|for_loop

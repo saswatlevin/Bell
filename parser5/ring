@@ -1,0 +1,6 @@
+#!/bin/bash
+
+bison -d ring.y
+flex ring.l
+gcc lex.yy.c ring.tab.c -o output
+./output
