@@ -473,16 +473,16 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint16 yyrline[] =
 {
        0,    68,    68,    71,    74,    75,    76,    77,    78,    79,
-      80,    81,    82,    83,    84,    85,    86,    87,    90,    93,
-      98,   102,   106,   109,   112,   115,   116,   119,   120,   123,
-     126,   129,   130,   133,   134,   137,   138,   139,   142,   143,
-     146,   147,   150,   151,   152,   155,   156,   159,   160,   163,
-     164,   167,   168,   171,   172,   173,   176,   177,   178,   181,
-     182,   185,   186,   187,   190,   191,   192,   195,   196,   199,
-     200,   201,   204,   207,   208,   211,   212,   215,   216,   219,
-     220,   222,   223,   224,   228,   229,   232,   233,   237,   238,
-     240,   241,   244,   245,   246,   249,   250,   253,   254,   257,
-     258,   261,   262,   265
+      80,    81,    82,    83,    84,    85,    86,    87,    90,    94,
+     100,   105,   112,   119,   125,   132,   136,   142,   144,   150,
+     157,   161,   162,   165,   166,   169,   170,   171,   174,   175,
+     178,   179,   182,   183,   184,   187,   188,   191,   192,   195,
+     196,   199,   200,   203,   204,   205,   208,   209,   210,   213,
+     214,   217,   218,   219,   222,   223,   224,   227,   228,   231,
+     232,   233,   236,   239,   240,   243,   244,   247,   248,   251,
+     252,   254,   255,   256,   260,   261,   264,   265,   269,   270,
+     272,   273,   276,   277,   278,   281,   282,   285,   286,   289,
+     290,   293,   294,   297
 };
 #endif
 
@@ -1370,27 +1370,112 @@ yyreduce:
     {
         case 18:
 #line 90 "ring.y" /* yacc.c:1646  */
-    {printf("%s", (yyvsp[-7].str));}
-#line 1375 "ring.tab.c" /* yacc.c:1646  */
+    { printf("\nType   Token"); 
+                                                                                       printf("\nIf statement %s", (yyvsp[-7].str));}
+#line 1376 "ring.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 93 "ring.y" /* yacc.c:1646  */
-    {printf("%s", (yyvsp[-8].str));
-                                                                          printf("%s",(yyvsp[-6].str));
-                                                                          printf("%s",(yyvsp[-1].str));}
-#line 1383 "ring.tab.c" /* yacc.c:1646  */
+#line 94 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+									 printf("\nFor_Loop %s", (yyvsp[-8].str));
+                                                                          printf("\nFor_Loop %s",(yyvsp[-6].str));
+                                                                          printf("\nFor_Loop %s",(yyvsp[-1].str));}
+#line 1385 "ring.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 98 "ring.y" /* yacc.c:1646  */
-    {printf("%s", (yyvsp[-5].str));
-                                                         printf("%s",(yyvsp[-1].str));}
-#line 1390 "ring.tab.c" /* yacc.c:1646  */
+#line 100 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+							 printf("\nWhile_Loop %s", (yyvsp[-5].str));
+                                                         printf("\nWhile_Loop %s",(yyvsp[-1].str));}
+#line 1393 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 21:
+#line 105 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                                    printf("\nDo_Loop %s",(yyvsp[-4].str));
+                                                    printf("\nDo_Loop %s",(yyvsp[-2].str)); 
+                                                      }
+#line 1402 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 22:
+#line 112 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                                    printf("\nTry_statement %s",(yyvsp[-6].str));
+                                                    printf("\nTry_statement %s",(yyvsp[-3].str)); 
+                                                    printf("\nTry_statement %s",(yyvsp[-1].str));  
+                                                    }
+#line 1412 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 23:
+#line 119 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                                    printf("\nSwitch_statement %s",(yyvsp[-6].str));
+                                                    printf("\nSwitch_statement %s",(yyvsp[-1].str)); 
+                                                    }
+#line 1421 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 24:
+#line 125 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                                    printf("\nPackage_statement %s",(yyvsp[-5].str));
+                                                    printf("\nPackage_statement %s",(yyvsp[-4].str)); 
+                                                    printf("\nPackage_statement %s",(yyvsp[-1].str));  
+	                                            }
+#line 1431 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 25:
+#line 132 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                  printf("\nsee_stat %s",(yyvsp[-2].str));
+                                                     
+                                }
+#line 1440 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 26:
+#line 136 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                printf("\nsee_stat %s",(yyvsp[-2].str));
+                                printf("\nsee_stat %s",(yyvsp[-1].str));                     
+                                }
+#line 1449 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 27:
+#line 142 "ring.y" /* yacc.c:1646  */
+    { printf("\nType   Token");
+                                    printf("\ngive_stat %s",(yyvsp[-2].str));}
+#line 1456 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 28:
+#line 144 "ring.y" /* yacc.c:1646  */
+    {printf("\nType   Token");
+                                printf("\ngive_stat %s",(yyvsp[-2].str));
+                                printf("\ngive_stat %s",(yyvsp[-1].str));                     
+                                }
+#line 1465 "ring.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 29:
+#line 150 "ring.y" /* yacc.c:1646  */
+    { 
+                                printf("\nType   Token");
+                                printf("\nsee_stat %s",(yyvsp[-5].str));
+                                printf("\nsee_stat %s",(yyvsp[-4].str));                     
+                                }
+#line 1475 "ring.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1394 "ring.tab.c" /* yacc.c:1646  */
+#line 1479 "ring.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1618,7 +1703,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 267 "ring.y" /* yacc.c:1906  */
+#line 299 "ring.y" /* yacc.c:1906  */
 
 
 

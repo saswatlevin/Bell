@@ -65,7 +65,7 @@ extern int i;
 %token <str>EOP
 %define parse.error verbose 
 %%
-stmt:program EOP
+stmt:program EOP 
     ;
 
 program:Statement
@@ -87,43 +87,75 @@ Statement:if_statement
         |expr
         ;
 
-if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement {printf("%s", $1);}
+if_statement:IF expr lbr_d stmt_prime_4 elseif_expr_stmt_p else_STMT_d RBR Statement { printf("\nType   Token"); 
+                                                                                       printf("\nIf statement %s", $1);}
 	;
 
-for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement {printf("%s", $1);
-                                                                          printf("%s",$3);
-                                                                          printf("%s",$8);}
+for_loop:FOR expr TO expr step_expr_d lbr_d2 STMT_prime_3 RBR Statement { printf("\nType   Token");
+									 printf("\nFor_Loop %s", $1);
+                                                                          printf("\nFor_Loop %s",$3);
+                                                                          printf("\nFor_Loop %s",$8);}
 	;
 
-while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR Statement {printf("%s", $1);
-                                                         printf("%s",$5);}
+while_loop:WHILE expr lbr_d4 stmt_prime_7 RBR Statement { printf("\nType   Token");
+							 printf("\nWhile_Loop %s", $1);
+                                                         printf("\nWhile_Loop %s",$5);}
 	;
 
-do_again_loop:DO stmt_prime_8 AGAIN expr Statement 	
+do_again_loop:DO stmt_prime_8 AGAIN expr Statement { printf("\nType   Token");
+                                                    printf("\nDo_Loop %s",$1);
+                                                    printf("\nDo_Loop %s",$3); 
+                                                      }	
 	;
 
 
-try_catch_statement:TRY stmt_prime_9 lbr_d5 CATCH stmt_prime_10 RBR Statement 
+try_catch_statement:TRY stmt_prime_9 lbr_d5 CATCH stmt_prime_10 RBR Statement { printf("\nType   Token");
+                                                    printf("\nTry_statement %s",$1);
+                                                    printf("\nTry_statement %s",$4); 
+                                                    printf("\nTry_statement %s",$6);  
+                                                    }	
 	;
 
-switch_statement:SWITCH expr lbr_d1 case_expr_statement_p other_STMT_d RBR Statement 
+switch_statement:SWITCH expr lbr_d1 case_expr_statement_p other_STMT_d RBR Statement{ printf("\nType   Token");
+                                                    printf("\nSwitch_statement %s",$1);
+                                                    printf("\nSwitch_statement %s",$6); 
+                                                    }	 
 	;
 
-package_statement:PACKAGE IDENTIFIER dot_id_p lbr_stmt_rbr_d ENDPACKAGE Statement    
+package_statement:PACKAGE IDENTIFIER dot_id_p lbr_stmt_rbr_d ENDPACKAGE Statement  { printf("\nType   Token");
+                                                    printf("\nPackage_statement %s",$1);
+                                                    printf("\nPackage_statement %s",$2); 
+                                                    printf("\nPackage_statement %s",$5);  
+	                                            }	  
 	;
 
-see_statement:SEE expr Statement
-	|SEE LITERAL Statement
+see_statement:SEE expr Statement{ printf("\nType   Token");
+                                  printf("\nsee_stat %s",$1);
+                                                     
+                                }	
+	|SEE LITERAL Statement{ printf("\nType   Token");
+                                printf("\nsee_stat %s",$1);
+                                printf("\nsee_stat %s",$2);                     
+                                }
 	;
 
-give_statement:GIVE expr Statement
-	|GIVE LITERAL Statement
+give_statement:GIVE expr Statement{ printf("\nType   Token");
+                                    printf("\ngive_stat %s",$1);} 
+	|GIVE LITERAL Statement{printf("\nType   Token");
+                                printf("\ngive_stat %s",$1);
+                                printf("\ngive_stat %s",$2);                     
+                                }
         ;
 
-class_statement:CLASS IDENTIFIER from_colon_lt_id_prime lbr_stmt_rbr_d1 ENDCLASS Statement
+class_statement:CLASS IDENTIFIER from_colon_lt_id_prime lbr_stmt_rbr_d1 ENDCLASS Statement{ 
+                                printf("\nType   Token");
+                                printf("\nsee_stat %s",$1);
+                                printf("\nsee_stat %s",$2);                     
+                                }
 	;
 
-load_statement:LOAD PACKAGE LITERAL
+load_statement:LOAD PACKAGE LITERAL{}
+                                       
 	;
 
 from_colon_lt_id_prime:FROM IDENTIFIER
