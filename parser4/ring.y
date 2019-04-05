@@ -83,6 +83,7 @@ Statement:if_statement
         |give_statement
         |class_statement
         |load_statement
+        |EOP
         |expr
         ;
 
@@ -275,19 +276,18 @@ void main()
 {
 	//printf("\n Enter the expression:\n");
 	yyin=fopen("test.txt","r");
-        int a = yyparse();
-    fclose(yyin);
-    /*if(a == 0) {
-        printf("-------------------------------\n");
-        printf("Variable\tType\n");
-        printf("-------------------------------\n");
-        printf("%s\t",yylval.str);
-        printf("Parsed successfuly!\n");
-    } else {
         
-        /* yyerror() 
-    }*/
-  
+	do{
+            if(yyparse())
+            {
+               printf("\nFailure:\n");
+               exit(0);
+            }
+        }while(!feof(yyin));
+         
+        printf("\nSuccess\n");
+    
+    
     return 0;
 }
 
